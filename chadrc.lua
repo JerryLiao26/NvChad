@@ -13,6 +13,7 @@ M.plugins = {
 
    override = {
       ["hrsh7th/nvim-cmp"] = override.cmp,
+      ["lewis6991/gitsigns.nvim"] = override.gitsigns,
    },
 }
 
