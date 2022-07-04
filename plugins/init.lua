@@ -15,4 +15,11 @@ return {
     ["onsails/lspkind.nvim"] = {
 	requires = "hrsh7th/nvim-cmp",
     },
+
+    ["jose-elias-alvarez/null-ls.nvim"] = {
+        after = "nvim-lspconfig",
+        config = function()
+            require "custom.plugins.null-ls"
+        end,
+    },
 }
