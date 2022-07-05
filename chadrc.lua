@@ -8,6 +8,14 @@ M.ui = {
     },
 }
 
+M.options = {
+    user = function()
+        vim.opt.wrap = false
+        vim.opt.tabstop = 2
+        vim.opt.softtabstop = 2
+    end,
+}
+
 M.plugins = {
     user = require "custom.plugins",
 
@@ -23,5 +31,7 @@ M.plugins = {
         },
     },
 }
+
+M.mappings = require "custom.mappings"
 
 return M
