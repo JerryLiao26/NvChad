@@ -1,19 +1,31 @@
 local M = {}
 
-M.null_ls = {
+M.disabled = {
     n = {
+        ["<leader>f"] = "",
+    }
+}
+
+M.general = {
+    n = {
+        ["<leader>F"] = {
+            function()
+                vim.diagnostic.open_float()
+            end,
+            "   floating diagnostic",
+        },
         ["<leader>fm"] = {
             function()
                 vim.lsp.buf.formatting()
             end,
-            "   lsp formatting",
-        }
+            "   general lsp formatting",
+        },
     }
 }
 
 M.telescope = {
     n = {
-        ["<leader>ff"] = { "<cmd> Telescope git_files <CR>", "  git files" },
+        ["<leader>ff"] = { "<cmd> Telescope git_files <CR>", "  find git files" },
     }
 }
 
