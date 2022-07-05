@@ -10,3 +10,5 @@ git clone https://github.com/JerryLiao26/NvChad.git ~/.config/nvim/lua/custom --
 ```
 
 - Open `nvim` and do `:PackerSync`
+
+- Remember to install all corresponding tools in null-ls configuration
