@@ -22,6 +22,7 @@ M.plugins = {
     override = {
         ["hrsh7th/nvim-cmp"] = override.cmp,
         ["lewis6991/gitsigns.nvim"] = override.gitsigns,
+        ["kyazdani42/nvim-tree.lua"] = override.nvimtree,
         ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
     },
 

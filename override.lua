@@ -39,6 +39,21 @@ M.gitsigns = {
     current_line_blame_formatter = "    <author>, <author_time:%Y-%m-%d> - <summary>"
 }
 
+M.nvimtree = {
+    git = {
+        enable = true,
+    },
+ 
+    renderer = {
+        highlight_git = true,
+        icons = {
+            show = {
+                git = true,
+            },
+        },
+    },
+}
+
 M.treesitter = {
     ensure_installed = {
         "html",
