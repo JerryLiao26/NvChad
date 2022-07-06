@@ -18,4 +18,10 @@ return {
             require "custom.plugins.null-ls"
         end,
     },
+
+    ["Shatur/neovim-session-manager"] = {
+        config = function()
+            require "custom.plugins.session-manager"
+        end,
+    },
 }
