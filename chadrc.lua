@@ -6,6 +6,10 @@ M.ui = {
     statusline = {
         separator_style = "arrow",
     },
+
+    tabufline = {
+        enabled = false,
+    },
 }
 
 M.options = {

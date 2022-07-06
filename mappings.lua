@@ -29,4 +29,11 @@ M.telescope = {
     }
 }
 
+M.bufferline = {
+    n = {
+        ["<TAB>"] = { "<cmd> BufferLineCycleNext <CR>", "  goto next buffer" },
+        ["<S-Tab>"] = { "<cmd> BufferLineCyclePrev <CR> ", "  goto prev buffer" },
+    }
+}
+
 return M

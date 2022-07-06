@@ -24,4 +24,10 @@ return {
             require "custom.plugins.session-manager"
         end,
     },
+
+    ["akinsho/bufferline.nvim"] = {
+        config = function()
+            require "custom.plugins.bufferline"
+        end,
+    },
 }
