@@ -67,4 +67,16 @@ M.treesitter = {
     }
 }
 
+M.statusline = {
+    cursor_position = function()
+        local sep_style = require("ui.icons").statusline_separators
+        local user_sep = require("core.utils").load_config().ui.statusline.separator_style
+        local sep_l = sep_style[user_sep]["left"]
+        local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
+        local text = "Ln " .. vim.fn.line "." .. ", Col " .. vim.fn.col "." 
+
+        return left_sep .. "%#St_pos_text#" .. " " .. text .. " "
+    end,
+}
+
 return M

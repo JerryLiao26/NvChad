@@ -5,6 +5,7 @@ local override = require "custom.override"
 M.ui = {
     statusline = {
         separator_style = "arrow",
+        override = override.statusline,
     },
 
     tabufline = {
