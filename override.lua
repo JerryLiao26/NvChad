@@ -3,6 +3,18 @@ local M = {}
 local lspkind = require("lspkind")
 
 M.cmp = {
+    enabled = function()
+        local context = require 'cmp.config.context'
+        if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+        else
+            return not context.in_treesitter_capture("comment") 
+                and not context.in_syntax_group("Comment")
+                and vim.bo.filetype ~= "TelescopePrompt"
+                -- For NvimTree live filter
+                and vim.bo.filetype ~= ""
+        end
+    end,
     sources = {
         { name = "cmp_tabnine" },
         { name = "luasnip" },
