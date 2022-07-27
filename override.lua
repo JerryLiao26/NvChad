@@ -2,13 +2,36 @@ local M = {}
 
 local lspkind = require("lspkind")
 
+M.ui = {
+    statusline = {
+        separator_style = "arrow",
+        overriden_modules = function()
+            return {
+                cursor_position = function()
+                    local sep_style = vim.g.statusline_sep_style
+                    local separators = (type(sep_style) == "table" and sep_style) or require("nvchad_ui.icons").statusline_separators[sep_style]
+                    local sep_l = separators["left"]
+                    local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
+                    local text = "Ln " .. vim.fn.line "." .. ", Col " .. vim.fn.col "."
+
+                    return left_sep .. "%#St_pos_text#" .. " " .. text .. " "
+                end,
+            }
+        end,
+    },
+
+    tabufline = {
+       enabled = false,
+    },
+}
+
 M.cmp = {
     enabled = function()
         local context = require 'cmp.config.context'
         if vim.api.nvim_get_mode().mode == 'c' then
             return true
         else
-            return not context.in_treesitter_capture("comment") 
+            return not context.in_treesitter_capture("comment")
                 and not context.in_syntax_group("Comment")
                 and vim.bo.filetype ~= "TelescopePrompt"
                 -- For NvimTree live filter
@@ -17,6 +40,7 @@ M.cmp = {
     end,
     sources = {
         { name = "cmp_tabnine" },
+	{ name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "buffer" },
@@ -55,7 +79,7 @@ M.nvimtree = {
     git = {
         enable = true,
     },
- 
+
     renderer = {
         highlight_git = true,
         icons = {
@@ -77,18 +101,6 @@ M.treesitter = {
         "vue",
         "go",
     }
-}
-
-M.statusline = {
-    cursor_position = function()
-        local sep_style = require("ui.icons").statusline_separators
-        local user_sep = require("core.utils").load_config().ui.statusline.separator_style
-        local sep_l = sep_style[user_sep]["left"]
-        local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
-        local text = "Ln " .. vim.fn.line "." .. ", Col " .. vim.fn.col "." 
-
-        return left_sep .. "%#St_pos_text#" .. " " .. text .. " "
-    end,
 }
 
 return M

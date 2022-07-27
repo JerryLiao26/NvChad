@@ -12,6 +12,10 @@ return {
 	    requires = "hrsh7th/nvim-cmp",
     },
 
+    ["hrsh7th/cmp-nvim-lsp"] = {
+            requires = "hrsh7th/nvim-cmp",
+    },
+
     ["jose-elias-alvarez/null-ls.nvim"] = {
         after = "nvim-lspconfig",
         config = function()
